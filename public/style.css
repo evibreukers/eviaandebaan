@@ -1,0 +1,282 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 5.5rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+  color: #e5e5db;
+  background-color: black;
+  padding: 10px 10px 0px 10px;
+}
+
+body {
+  background-color: #e5e5db;
+  font-family: "Spartan", sans-serif;
+  overflow: hidden;
+}
+
+/* GAME CONTAINER */
+.game-container {
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+  margin-top: 10vh;
+  background-color: #e5e5db;
+}
+
+/* INTRO */
+#intro {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: height 0.5s ease;
+  background-color: #e5e5db;
+}
+
+#intro h2:hover {
+  background-color: #ea2893;
+}
+
+/* GAME */
+#game {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5e5db;
+}
+
+.gameField {
+  position: relative;
+  border: 4px solid black;
+  border-radius: 5px;
+  width: 90%;
+  height: 500px;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+#puppet {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  height: 250px;
+  transition: bottom 0.5s ease 0s, left 0.1s linear;
+}
+
+.puppet-head {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.puppet-body {
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+}
+
+/* SCORE PANEL */
+.level-panel img {
+  width: 30px;
+  margin-right: 5px;
+}
+
+/* WIN */
+#win {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5e5db;
+}
+
+/* LOSE */
+#lose {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5e5db;
+  flex-wrap: wrap;
+}
+
+.lose-image {
+  position: absolute;
+  margin-right: 20px;
+  width: fit-content;
+  height: fit-content;
+  flex: 350px;
+  top: 0;
+}
+
+.lose-image img {
+  position: absolute;
+  width: 300px;
+}
+
+.tear {
+  position: absolute;
+  max-width: 10px;
+  top: 170px;
+  left: 180px;
+}
+
+.lose-text {
+  width: fit-content;
+  margin-top: -150px;
+  flex: 1;
+}
+
+.lose-text h2 {
+  font-size: 3rem;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  word-wrap: none;
+}
+
+.lose-text p {
+  font-size: 1rem;
+  word-wrap: none;
+  margin-top: 10px;
+}
+
+/* WIN */
+#win {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5e5db;
+  padding: 0 15%;
+  flex-wrap: wrap;
+}
+
+.win-image {
+  margin-right: 20px;
+}
+
+.win-image img {
+  width: 300px;
+}
+
+.win-text {
+  width: fit-content;
+  margin-top: -150px;
+}
+
+.win-text h2 {
+  font-size: 3rem;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  word-wrap: none;
+}
+
+.win-text p {
+  font-size: 1rem;
+  word-wrap: none;
+  margin-top: 10px;
+}
+
+/* PLANE */
+.plane-panel {
+  margin: 40px 0 0 0;
+  width: 100%;
+}
+
+.plane {
+  display: flex;
+  align-items: center;
+  animation: plane 10s infinite forwards linear;
+}
+
+.plane-image {
+  width: 150px;
+}
+
+.plane-text {
+  width: fit-content;
+  height: 70px;
+  margin: 0px 20px 0px -500px;
+  padding: 10px 20px;
+  border: 4px solid #ea2893;
+  color: #ea2893;
+  font-size: 2rem;
+}
+
+@keyframes plane {
+  from {
+    margin-left: -10px;
+  }
+  to {
+    margin-left: 120%;
+    margin-right: -600px;
+  }
+}
+
+/* NAVIGATION */
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: +1;
+}
+
+.burger {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 3rem;
+}
+
+.menu {
+  display: none;
+}
+
+nav ul {
+  margin: 70px 20px 0 0;
+  list-style: none;
+}
+
+nav li {
+  border: 3px solid black;
+  color: black;
+  padding: 5px 10px 3px 10px;
+  margin: 5px 0px;
+}
+/* FALLING ITEMS */
+
+.item {
+  position: absolute;
+  bottom: 600px;
+  transition: bottom 5s ease;
+}
