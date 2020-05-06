@@ -13,6 +13,11 @@ h2 {
   color: #e5e5db;
   background-color: black;
   padding: 10px 10px 0px 10px;
+  cursor: pointer;
+}
+
+h2:hover {
+  background-color: #ea2893;
 }
 
 body {
@@ -22,7 +27,7 @@ body {
 }
 
 /* GAME CONTAINER */
-.game-container {
+.container {
   position: relative;
   width: 100vw;
   height: 90vh;
@@ -46,12 +51,18 @@ body {
 
 #intro h2:hover {
   background-color: #ea2893;
+  cursor: pointer;
+}
+
+#intro p {
+  text-align: center;
+  margin-top: 20px;
 }
 
 /* GAME */
 #game {
   position: absolute;
-  display: none;
+  display: flex;
   width: 100%;
   height: 100%;
   flex-direction: column;
@@ -95,6 +106,11 @@ body {
 }
 
 /* SCORE PANEL */
+
+.score-panel {
+  margin: 20px;
+}
+
 .level-panel img {
   width: 30px;
   margin-right: 5px;
@@ -113,7 +129,7 @@ body {
 
 /* LOSE */
 #lose {
-  display: flex;
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -126,16 +142,12 @@ body {
 }
 
 .lose-image {
-  position: absolute;
+  position: relative;
   margin-right: 20px;
   width: fit-content;
-  height: fit-content;
-  flex: 350px;
-  top: 0;
 }
 
 .lose-image img {
-  position: absolute;
   width: 300px;
 }
 
@@ -144,70 +156,117 @@ body {
   max-width: 10px;
   top: 170px;
   left: 180px;
+  animation: tear 1.5s infinite ease-out;
 }
 
-.lose-text {
-  width: fit-content;
-  margin-top: -150px;
-  flex: 1;
+@keyframes tear {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(50px);
+  }
 }
 
 .lose-text h2 {
   font-size: 3rem;
   margin-top: 5px;
   padding-bottom: 5px;
-  word-wrap: none;
+  width: fit-content;
 }
 
 .lose-text p {
   font-size: 1rem;
-  word-wrap: none;
   margin-top: 10px;
+}
+
+.lose-text button {
+  font-family: "Spartan", sans-serif;
+  color: #ea2893;
+  border: 4px solid #ea2893;
+  background-color: transparent;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.lose-text button:hover {
+  background-color: white;
 }
 
 /* WIN */
 #win {
-  display: flex;
+  display: none;
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   justify-content: center;
   align-items: center;
   background-color: #e5e5db;
-  padding: 0 15%;
   flex-wrap: wrap;
 }
 
 .win-image {
+  position: relative;
   margin-right: 20px;
+  width: fit-content;
 }
 
 .win-image img {
   width: 300px;
 }
 
-.win-text {
-  width: fit-content;
-  margin-top: -150px;
+.crown {
+  position: absolute;
+  max-width: 80px;
+  top: -40px;
+  left: 80px;
+  transform-origin: 80% 100%;
+  animation: crown 0.5s alternate-reverse infinite ease;
+}
+
+@keyframes crown {
+  from {
+    transform: rotate(-10deg);
+  }
+  to {
+    transform: rotate(10deg);
+  }
 }
 
 .win-text h2 {
   font-size: 3rem;
   margin-top: 5px;
   padding-bottom: 5px;
-  word-wrap: none;
+  width: fit-content;
 }
 
 .win-text p {
   font-size: 1rem;
-  word-wrap: none;
   margin-top: 10px;
+}
+
+.win-text button {
+  font-family: "Spartan", sans-serif;
+  color: #ea2893;
+  border: 4px solid #ea2893;
+  background-color: transparent;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.win-text button:hover {
+  background-color: white;
 }
 
 /* PLANE */
 .plane-panel {
   margin: 40px 0 0 0;
   width: 100%;
+  cursor: pointer;
 }
 
 .plane {
@@ -218,6 +277,10 @@ body {
 
 .plane-image {
   width: 150px;
+}
+
+.plane-image:hover {
+  animation: planerotate 1s forwards ease;
 }
 
 .plane-text {
@@ -235,8 +298,17 @@ body {
     margin-left: -10px;
   }
   to {
-    margin-left: 120%;
+    margin-left: 150%;
     margin-right: -600px;
+  }
+}
+
+@keyframes planerotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -256,27 +328,233 @@ nav {
   width: 50px;
   height: 50px;
   font-size: 3rem;
+  cursor: pointer;
 }
 
 .menu {
   display: none;
+  width: fit-content;
+  padding-top: 10px;
 }
 
 nav ul {
   margin: 70px 20px 0 0;
-  list-style: none;
 }
 
-nav li {
+li {
   border: 3px solid black;
   color: black;
   padding: 5px 10px 3px 10px;
   margin: 5px 0px;
+  list-style: none;
+  cursor: pointer;
 }
-/* FALLING ITEMS */
 
+li:hover {
+  background-color: white;
+}
+
+.navLeft {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+}
+
+.navLeft li {
+  border: 3px solid black;
+  color: black;
+  padding: 5px 10px 3px 10px;
+  margin: 5px 0px;
+  list-style: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.navLeft li:hover {
+  background-color: white;
+}
+
+/* FALLING ITEMS */
 .item {
   position: absolute;
   bottom: 600px;
   transition: bottom 5s ease;
+}
+
+/* GAME INSTRUCTIONS */
+
+.instructions-panel {
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+}
+
+.paper {
+  position: absolute;
+  bottom: -5px;
+  width: 80%;
+  height: 80vh;
+  border: 4px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instructions-header {
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+}
+
+.instructions-header h2 {
+  flex: 100%;
+  font-size: 3rem;
+  text-align: center;
+  padding: 13px 40px 3px 40px;
+}
+
+.instructions-header p {
+  text-align: center;
+  margin: 20px 20px 0px 20px;
+}
+
+.instructions-main {
+  display: flex;
+  width: 80%;
+}
+
+.instructions-main section {
+  display: flex;
+  align-items: center;
+}
+
+.icon-row1 {
+  flex: 50%;
+}
+
+.icon-row1 img {
+  margin: 0 20px 10px 0;
+}
+
+.icon-row2 {
+  flex: 50%;
+}
+
+.icon-row2 img {
+  margin: 0 20px 10px 0;
+  width: 60px;
+}
+
+/* CONTACT */
+.contact-panel {
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+}
+
+.contact {
+  width: 80%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-main {
+  display: flex;
+  margin-top: 40px;
+}
+
+.contact-main section {
+  margin: 0px 30px;
+}
+
+.contact-main1 {
+  padding: 30px 10px;
+}
+
+.contact-main1 a {
+  text-decoration: none;
+}
+
+.contact p {
+  margin-top: 30px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+form input,
+form textarea {
+  padding: 5px;
+  font-size: 1rem;
+  font-family: "Spartan", sans-serif;
+  outline: none;
+  border: 3px solid black;
+  background-color: transparent;
+}
+
+form span {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+form button {
+  padding: 10px;
+  font-size: 1rem;
+  font-family: "Spartan", sans-serif;
+  outline: none;
+  border: 3px solid #ea2893;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 80px;
+  background-color: #ea2893;
+}
+
+form button:hover {
+  border: 3px solid #ea2893;
+  color: #ea2893;
+  background-color: white;
+}
+
+.contact li {
+  width: 150px;
+  text-align: center;
+}
+
+/* ABOUT */
+.about-panel {
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+}
+
+.about {
+  width: 80%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about p {
+  margin-top: 30px;
+  text-align: center;
 }

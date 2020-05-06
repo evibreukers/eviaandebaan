@@ -24,13 +24,18 @@ function Navigation() {
       >
         <ul>
           <li>
-            <Link to="/" style={linkStyle}>
-              Home
+            <Link to="/" style={linkStyle} className="nav_link">
+              home
             </Link>
           </li>
           <li>
-            <Link to="/contact" style={linkStyle}>
-              Contact
+            <Link to="/about" style={linkStyle} className="nav_link">
+              about me
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" style={linkStyle} className="nav_link">
+              contact
             </Link>
           </li>
         </ul>
