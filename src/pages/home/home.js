@@ -7,17 +7,15 @@ function Home() {
   const [play, setPlay] = useState(false);
 
   useEffect(() => {
-    document.addEventListener("keydown", (event) => {
+    function pressEnter(event) {
       if (event.keyCode === 13) {
         setPlay(true);
       }
-    });
+    }
+    window.addEventListener("keydown", pressEnter);
+
     return () => {
-      document.removeEventListener("keydown", (event) => {
-        if (event.keyCode === 13) {
-          setPlay(true);
-        }
-      });
+      window.removeEventListener("keydown", pressEnter);
     };
   }, []);
 

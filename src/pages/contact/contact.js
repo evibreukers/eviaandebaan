@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Navigation from "../../components/navigation";
+import Form from "./form";
 
 function Contact() {
   return (
@@ -17,8 +18,11 @@ function Contact() {
         <div className="contact">
           <h2>CONTACT</h2>
           <p>
-            Hallo daar! Is het je gelukt mij aan een baan te helpen? Ik ben
-            benieuwd! Laat het me weten. Kunnen wij iets voor elkaar betekenen?
+            Hallo daar!
+            <br />
+            <br />
+            Is het je gelukt mij aan een baan te helpen? Ik ben benieuwd! <br />
+            Laat het me weten en wellicht kunnen wij iets voor elkaar betekenen.
           </p>
           <div className="contact-main">
             <section className="contact-main1">
@@ -48,21 +52,7 @@ function Contact() {
               </a>
             </section>
             <section className="contact-main2">
-              <form>
-                <span>
-                  <label>name</label>
-                  <input type="text" />
-                </span>
-                <span>
-                  <label>e-mail</label>
-                  <input type="text" />
-                </span>
-                <span>
-                  <label>message</label>
-                  <textarea />
-                </span>
-                <button>send</button>
-              </form>
+              <Form />
             </section>
           </div>
         </div>

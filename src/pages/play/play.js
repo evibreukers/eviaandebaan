@@ -14,7 +14,6 @@ let posX = 0;
 let up = false;
 let right = false;
 let left = false;
-
 let lifes = 0;
 let points = 0;
 let timer = 60;
@@ -24,11 +23,13 @@ let cloning;
 let catching;
 let result = false;
 
+const audioBomb = new Audio("../../assets/audio/bomb.wav");
+
 /* PRESS ARROW KEYS */
-const keyDown = (event) => {
+function keyDown(event) {
   /* space = jump */
   if (event.keyCode === 32 && up === false) {
-    document.querySelector("#puppet").style.bottom = "300px";
+    document.querySelector("#puppet").style.bottom = "200px";
     up = true;
   }
 
@@ -55,9 +56,9 @@ const keyDown = (event) => {
       left = true;
     }
   }
-};
+}
 
-const keyUp = (event) => {
+function keyUp(event) {
   /* space = jump */
   if (event.keyCode === 32) {
     up = false;
@@ -72,7 +73,7 @@ const keyUp = (event) => {
   if (event.keyCode === 37) {
     left = false;
   }
-};
+}
 
 /* SET TIMER */
 const countDown = () => {
@@ -198,7 +199,7 @@ const cloneFunction = () => {
 
     setTimeout(() => {
       clone.style.bottom = "-100px";
-    }, 500);
+    }, 200);
   }
 
   if (randomNum === 2) {
@@ -211,7 +212,7 @@ const cloneFunction = () => {
 
     setTimeout(() => {
       clone.style.bottom = "-100px";
-    }, 500);
+    }, 200);
   }
 
   if (randomNum === 3) {
@@ -224,7 +225,7 @@ const cloneFunction = () => {
 
     setTimeout(() => {
       clone.style.bottom = "-100px";
-    }, 500);
+    }, 200);
   } else if (randomNum > 4) {
     /* CLONING POINT1 */
     const clone = document.querySelector(".point1").cloneNode(true);
@@ -235,7 +236,7 @@ const cloneFunction = () => {
 
     setTimeout(() => {
       clone.style.bottom = "-100px";
-    }, 500);
+    }, 200);
   }
 };
 
@@ -243,12 +244,13 @@ function Play() {
   const [stop, setStop] = useState(false);
 
   useEffect(() => {
-    document.addEventListener("keydown", (event) => {
+    function pressEnter(event) {
       if (event.keyCode === 13 && gameStart === false) {
+        document.getElementById("enterStart").style.display = "none";
         gameStart = true;
         cloning = setInterval(() => {
           cloneFunction();
-        }, 1500);
+        }, 1200);
         catching = setInterval(() => {
           catchFunction();
         }, 20);
@@ -262,34 +264,16 @@ function Play() {
           }
         }, 20);
       }
-    });
-    document.addEventListener("keydown", (event) => {
-      keyDown(event);
-    });
+    }
 
-    document.addEventListener("keyup", (event) => {
-      keyUp(event);
-    });
+    document.addEventListener("keydown", pressEnter);
+    document.addEventListener("keydown", keyDown);
+    document.addEventListener("keyup", keyUp);
+
     return () => {
-      document.removeEventListener("keydown", (event) => {
-        if (event.keyCode === 13 && gameStart === false) {
-          gameStart = true;
-          cloning = setInterval(() => {
-            cloneFunction();
-          }, 1500);
-          catching = setInterval(() => {
-            catchFunction();
-          }, 20);
-          countDown();
-        }
-      });
-      document.removeEventListener("keydown", (event) => {
-        keyDown(event);
-      });
-
-      document.removeEventListener("keyup", (event) => {
-        keyUp(event);
-      });
+      document.removeEventListener("keydown", pressEnter);
+      document.removeEventListener("keydown", keyDown);
+      document.removeEventListener("keyup", keyUp);
 
       clearInterval(cloning);
       clearInterval(catching);
@@ -306,9 +290,13 @@ function Play() {
 
   return (
     <div>
-      <section className="navLeft gameStart">
+      <section className="navLeft">
         <li>
-          <Link to="/" className="nav_link">
+          <Link
+            to="/"
+            className="nav_link"
+            style={{ textDecoration: "none", color: "black" }}
+          >
             return
           </Link>
         </li>
@@ -317,6 +305,7 @@ function Play() {
       <div className="container">
         <div id="game">
           <div className="gameField">
+            <h2 id="enterStart">press enter to start</h2>
             <div className="item bomb">
               <img src={bomb} alt="bomb" width="70px" />
               <div className="dot"></div>

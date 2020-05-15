@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.js": "/static/js/main.7252448e.chunk.js",
+    "main.js.map": "/static/js/main.7252448e.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.af2c8091.js",
+    "runtime-main.js.map": "/static/js/runtime-main.af2c8091.js.map",
+    "static/js/2.eb95b9fa.chunk.js": "/static/js/2.eb95b9fa.chunk.js",
+    "static/js/2.eb95b9fa.chunk.js.map": "/static/js/2.eb95b9fa.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.d0ee54c16ae863102f944c5a7b7893ef.js": "/precache-manifest.d0ee54c16ae863102f944c5a7b7893ef.js",
+    "service-worker.js": "/service-worker.js",
+    "static/js/2.eb95b9fa.chunk.js.LICENSE.txt": "/static/js/2.eb95b9fa.chunk.js.LICENSE.txt",
+    "static/media/bomb.svg": "/static/media/bomb.52976002.svg",
+    "static/media/crown.svg": "/static/media/crown.7d6992ca.svg",
+    "static/media/evi-happy.png": "/static/media/evi-happy.aaa0464d.png",
+    "static/media/evi-neutraal.png": "/static/media/evi-neutraal.239b2405.png",
+    "static/media/evi-sad.png": "/static/media/evi-sad.a3d64595.png",
+    "static/media/heart.svg": "/static/media/heart.b6f393b9.svg",
+    "static/media/heartpink.svg": "/static/media/heartpink.514892c5.svg",
+    "static/media/lefticon.svg": "/static/media/lefticon.d2096eae.svg",
+    "static/media/pauseicon.svg": "/static/media/pauseicon.6cf53d53.svg",
+    "static/media/point1.svg": "/static/media/point1.3e232393.svg",
+    "static/media/point2.svg": "/static/media/point2.4110b357.svg",
+    "static/media/righticon.svg": "/static/media/righticon.e5926b66.svg",
+    "static/media/tear.svg": "/static/media/tear.3cdb0c62.svg",
+    "static/media/time.svg": "/static/media/time.5db10076.svg",
+    "static/media/upicon.svg": "/static/media/upicon.c5880aa4.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.af2c8091.js",
+    "static/js/2.eb95b9fa.chunk.js",
+    "static/js/main.7252448e.chunk.js"
+  ]
+}
