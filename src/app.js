@@ -9,7 +9,7 @@ function App() {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div id="main-container">
       <Navigation />
       <h1>{counter}</h1>
       <h1>{answer}</h1>

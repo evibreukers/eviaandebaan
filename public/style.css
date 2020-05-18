@@ -30,6 +30,7 @@ body {
 .container {
   position: relative;
   width: 100vw;
+  min-height: 500px;
   height: 90vh;
   margin-top: 10vh;
   background-color: #e5e5db;
@@ -366,6 +367,7 @@ li:hover {
   position: fixed;
   left: 10px;
   top: 10px;
+  z-index: 2;
 }
 
 .navLeft li {

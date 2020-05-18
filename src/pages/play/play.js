@@ -23,8 +23,6 @@ let cloning;
 let catching;
 let result = false;
 
-const audioBomb = new Audio("../../assets/audio/bomb.wav");
-
 /* PRESS ARROW KEYS */
 function keyDown(event) {
   /* space = jump */
